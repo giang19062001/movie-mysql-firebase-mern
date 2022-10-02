@@ -9,7 +9,7 @@ const movieRouter = require('./router/movie')
 const cateRouter = require('./router/cate')
 
 
-app.use(cors()) 
+app.use(cors( {origin: "*"})) 
 app.use (bodyParser.json()) 
 app.use(morgan("common"))
 app.use(express.static('images'))
