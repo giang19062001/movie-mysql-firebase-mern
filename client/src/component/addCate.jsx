@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Stack, Button, TextField, Typography, Container } from "@mui/material"
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -18,7 +17,6 @@ const AddCate = () => {
    const [data,setData] = useState()
 
 
-const navigate = useNavigate()
 
 
   const handleChange = (event) =>{
@@ -39,9 +37,7 @@ const navigate = useNavigate()
       console.log(cate)
       try {
        await axios.post(process.env.REACT_APP_SERVER+ "api/cate",cate)
-        setTimeout(() => {
-            navigate(0)
-        }, 1000);
+ 
       } catch (error) {
         window.alert(error)
       }
@@ -49,9 +45,7 @@ const navigate = useNavigate()
     }
     const handleDelete = async(id) =>{
         await axios.delete(process.env.REACT_APP_SERVER+ `api/cate/${id}`)
-            setTimeout(() => {
-                navigate(0)
-            }, 1000);
+
       }
     return(
       <>

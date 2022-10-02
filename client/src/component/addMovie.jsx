@@ -13,7 +13,6 @@ import axios from "axios";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useNavigate } from "react-router-dom";
 
 const AddMovie = () => {
 
@@ -26,7 +25,6 @@ const AddMovie = () => {
 })
  const [processing,setProcessing] = useState(false)
  const [cate,setCate] = useState([])
-const navigate = useNavigate()
 
 
   const handleChange = (event) =>{
@@ -73,7 +71,6 @@ const navigate = useNavigate()
         axios.post(process.env.REACT_APP_SERVER+ "api/movie",movie,{headers: {
           "Content-Type": "multipart/form-data"}
       })
-      navigate(0)
       } catch (error) {
         window.alert(error)
       }
