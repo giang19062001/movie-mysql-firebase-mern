@@ -6,10 +6,12 @@ import { useParams } from "react-router-dom";
 import { Player } from 'video-react';
 import Rating from '@mui/material/Rating';
 import { useSelector } from 'react-redux';
+import Clip from "./clip";
 
 
 const Movie = () =>{
     const [data,setData] = useState(null)
+
     const [value, setValue] = useState(1);
 
     const params = useParams();
@@ -20,13 +22,13 @@ const Movie = () =>{
       .then((res) =>
         setData(res.data)
       )
-    },[params.id])
-console.log(data?.movie.link)
+    },[params.id,data?.movie.link])
+
 
   
     return(
         <Box className="pt-12" sx={{paddingBottom:30}}>
-          {data !== null ?(
+          {data?.movie.link !== null ?(
             <>
             <Typography className="text-slate-50  font-mono" variant="h5" align="center">{data?.movie.name}<small>({data?.movie.year})</small></Typography>
             <Typography className="text-slate-50  font-mono" variant="h5" align="center"><small>Thể loại :{data?.cate}</small></Typography>
@@ -52,12 +54,8 @@ console.log(data?.movie.link)
               />
             </Typography>
            )}
-     
-         
             
-            <Player>
-            <source src={data?.movie.link}/>
-          </Player>
+           <Clip movie={data?.movie.link}></Clip>
           </>
           ):null}
 

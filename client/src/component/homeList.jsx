@@ -32,9 +32,9 @@ const HomeList = () =>{
   }
 
     return(
-        <Box className="bg-neutral-900 pb-12">
+        <Box className="bg-neutral-900 "  sx={{paddingBottom:50}}>
               
-         <Container className=" pt-6 pb-2 " maxWidth="sm">
+         <Container className=" pt-6 pb-2 " maxWidth="sm" >
           <Stack direction="row"   
           justifyContent="center"
           alignItems="center"
